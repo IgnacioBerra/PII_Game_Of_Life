@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+
 
 namespace PII_Game_Of_Life
 {
@@ -6,7 +8,18 @@ namespace PII_Game_Of_Life
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            bool[,] gameBoard = FileReader.Reader("C:\\Users\\Ignacio\\Documents\\Repositorios GIT\\Bacteria VIDA\\PII_Game_Of_Life\\assets\\board.txt");
+            Logic Logica = new Logic(gameBoard);
+
+            while (true)
+            {
+              gameBoard = Logica.Recorrer(gameBoard);
+              BoardPrinter.Print(gameBoard);
+            } 
+       
+       
+       
         }
     }
 }
